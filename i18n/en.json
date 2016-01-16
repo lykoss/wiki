@@ -1,0 +1,6 @@
+{
+	"werewolfwiki-userinfo-desc": "Retrieves information about the specified user. The user id, user name, and a list of effective groups (including implicit groups such as '*' and 'user') are reported.",
+	"werewolfwiki-userinfo-param-user": "(Optional) User ID to retrive info on. If unspecified, retrieves information on the current user instead.",
+	"werewolfwiki-userinfo-invalid-user": "Invalid user id $1",
+	"werewolfwiki-userinfo-example": "Get current user information:"
+}

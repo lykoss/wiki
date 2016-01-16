@@ -1,0 +1,21 @@
+{
+	"name": "WerewolfWiki",
+	"author": "Ryan Schmidt",
+	"description": "Additional features for the Werewolf Wiki",
+	"url": "https://github.com/lykoss/wiki",
+	"version": "1.0.0",
+	"license-name": "MIT",
+	"type": "other",
+	"manifest_version": 1,
+	"MessagesDirs": {
+		"WerewolfWiki": [
+			"i18n"
+		]
+	},
+	"AutoloadClasses": {
+		"ApiUserInfo": "api/ApiUserInfo.php"
+	},
+	"APIModules": {
+		"userinfo": "ApiUserInfo"
+	}
+}
