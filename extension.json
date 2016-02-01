@@ -3,17 +3,26 @@
 	"author": "Ryan Schmidt",
 	"description": "Additional features for the Werewolf Wiki",
 	"url": "https://github.com/lykoss/wiki",
-	"version": "1.0.0",
+	"version": "1.1.0",
 	"license-name": "MIT",
 	"type": "other",
 	"manifest_version": 1,
+	"config": {
+		"_prefix": "wgWW",
+		"RCFeedHideLogs": [
+			"patrol",
+			"review",
+			"suppress"
+		]
+	},
 	"MessagesDirs": {
 		"WerewolfWiki": [
 			"i18n"
 		]
 	},
 	"AutoloadClasses": {
-		"ApiUserInfo": "api/ApiUserInfo.php"
+		"ApiUserInfo": "api/ApiUserInfo.php",
+		"IRCSpamFreeRCFeedFormatter": "rcfeed/IRCSpamFreeRCFeedFormatter.php"
 	},
 	"APIModules": {
 		"userinfo": "ApiUserInfo"
