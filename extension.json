@@ -3,7 +3,7 @@
 	"author": "Ryan Schmidt",
 	"description": "Additional features for the Werewolf Wiki",
 	"url": "https://github.com/lykoss/wiki",
-	"version": "1.1.0",
+	"version": "1.2.0",
 	"license-name": "MIT",
 	"type": "other",
 	"manifest_version": 1,
@@ -13,7 +13,8 @@
 			"patrol",
 			"review",
 			"suppress"
-		]
+		],
+		"RCFeedHideNamespaces": []
 	},
 	"MessagesDirs": {
 		"WerewolfWiki": [

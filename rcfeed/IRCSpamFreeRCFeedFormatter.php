@@ -7,10 +7,17 @@ class IRCSpamFreeRCFeedFormatter extends IRCColourfulRCFeedFormatter {
 	 * @see RCFeedFormatter::getLine
 	 */
 	public function getLine( array $feed, RecentChange $rc, $actionComment ) {
-		global $wgWWRCFeedHideLogs;
+		global $wgWWRCFeedHideLogs, $wgWWRCFeedHideNamespaces;
 		$attribs = $rc->getAttributes();
+		if ( $attribs['rc_type'] == RC_LOG ) {
+			$title = Title::newFromText( 'Log/' . $attribs['rc_log_type'], NS_SPECIAL );
+		} else {
+			$title =& $rc->getTitle();
+		}
 
 		if ( $attribs['rc_type'] == RC_LOG && in_array( $attribs['rc_log_type'], $wgWWRCFeedHideLogs ) ) {
+			return null;
+		} elseif ( in_array( $title->getNamespace(), $wgWWRCFeedHideNamespaces ) ) {
 			return null;
 		}
 
