@@ -21,12 +21,22 @@
  * ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
 
+use MediaWiki\User\UserGroupManager;
+
 // Not an entry point
 if ( !defined( 'MEDIAWIKI' ) ) {
 	exit;
 }
 
 class ApiUserInfo extends ApiBase {
+	/** @var UserGroupManager */
+	private $userGroupManager;
+
+	public function __construct( ApiMain $main, $action, UserGroupManager $userGroupManager ) {
+		parent::__construct( $main, $action );
+		$this->userGroupManager = $userGroupManager;
+	}
+
 	public function execute() {
 		$userId = $this->getMain()->getVal( 'ui_user' );
 		if ($userId !== null) {
@@ -44,7 +54,7 @@ class ApiUserInfo extends ApiBase {
 
 		$res['id'] = $user->getId();
 		$res['name'] = $user->getName();
-		$res['effectiveGroups'] = $user->getEffectiveGroups();
+		$res['effectiveGroups'] = $this->userGroupManager->getUserEffectiveGroups( $user );
 
 		$this->getResult()->addValue( null, $this->getModuleName(), $res );
 	}
